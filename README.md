@@ -1,4 +1,4 @@
-This Credit Card Fee Simulator is a web-based tool designed to help users estimate transaction fees and payouts for credit card sales. Built with HTML, CSS, and JavaScript, it provides a user-friendly interface for calculating fees based on different card networks, sale types, and payout schedules.
+This credit card fee simulator is a web-based tool designed to help users estimate transaction fees and payouts for credit card sales. Built with HTML, CSS, and JavaScript, it provides a user-friendly interface for calculating fees based on different card networks, sale types, and payout schedules.
 
 ## Features
 - Select credit card network (Visa, Mastercard or Elo)
