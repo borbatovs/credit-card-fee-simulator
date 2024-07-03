@@ -9,23 +9,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const chosenPayout = document.getElementById('chosen-payout')
     const savings = document.getElementById('savings')
 
-    function formatCurrency(value) {
-        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
-    }
+    const formatCurrency = value =>
+        new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
 
-    function parseCurrency(value) {
-        return parseFloat(value.replace(/\D/g, '')) / 100
-    }
+    const parseCurrency = value =>
+        parseFloat(value.replace(/\D/g, '')) / 100
 
-    saleAmount.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '')
-        value = parseCurrency(value)
+    const handleSaleAmountInput = e => {
+        const value = parseCurrency(e.target.value.replace(/\D/g, ''))
         e.target.value = formatCurrency(value)
-    });
+        calculateFees()
+    }
 
-    function calculateFees() {
-        const amount = parseCurrency(saleAmount.value) || 0;
-        const simulatedRate = 0.136 // 13.6%
+    const calculateFees = () => {
+        const amount = parseCurrency(saleAmount.value) || 0
+
+        // TODO: Implement fee rules here
+        // Use cardNetwork.value, saleType.value, and payout.value to determine the correct fee
+        // Example:
+        // const fee = getFeeRate(cardNetwork.value, saleType.value, payout.value)
+        const simulatedRate = 0.136 // 13.6% (replace this with actual fee calculation)
+
         const calculatedAmountReceived = amount * (1 - simulatedRate)
 
         amountReceived.textContent = formatCurrency(calculatedAmountReceived)
@@ -37,13 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
         savings.textContent = formatCurrency(calculatedSavings)
     }
 
-    [cardNetwork, saleType, payout, saleAmount].forEach(el => {
+    [cardNetwork, saleType, payout].forEach(el =>
         el.addEventListener('change', calculateFees)
-    });
+    )
 
-    saleAmount.addEventListener('input', calculateFees)
+    saleAmount.addEventListener('input', handleSaleAmountInput)
 
+    // Initialize sale amount with formatted zero
     saleAmount.value = formatCurrency(0)
 
+    // Initial calculation to show zero values
     calculateFees()
-});
+})

@@ -109,20 +109,38 @@ input:focus {
   padding-bottom: 15px;
 }
 
-#comparsion {
+.savings-container {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;  
   margin: 20px 0px 20px 0px;
-  padding: 20px 20px;
+  padding: 20px 40px;
   background-color: #fff;
   border-radius: 10px;
+}
+
+.savings-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0
+}
+
+.savings-text {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+#savings {
+  color: #3cb4c9;
+  font-weight: bold;
 }
 
 #chosen-payout,
 #amount-received,
 #interest-rate,
-#savings {
+#savings-amount {
   color: #3cb4c9;
   font-weight: 600;
 }
