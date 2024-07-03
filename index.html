@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Taxas de Cartão de Crédito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <main class="main-section">
+        <div class="container">
+            <h3 class="label-title">Bandeiras</h3>
+            <select id="card-network">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="elo">Elo</option>
+            </select>
+
+            <h3 class="label-title">Tipo da venda</h3>
+            <select id="sale-type">
+                <option value="debit">Débito</option>
+                <option value="installment1x">Crédito à vista</option>
+                <option value="installment2x">Parcelado 2x</option>
+                <option value="installment3x">Parcelado 3x</option>
+                <option value="installment4x">Parcelado 4x</option>
+                <option value="installment5x">Parcelado 5x</option>
+                <option value="installment6x">Parcelado 6x</option>
+                <option value="installment7x">Parcelado 7x</option>
+                <option value="installment8x">Parcelado 8x</option>
+                <option value="installment9x">Parcelado 9x</option>
+                <option value="installment10x">Parcelado 10x</option>
+                <option value="installment11x">Parcelado 11x</option>
+                <option value="installment12x">Parcelado 12x</option>
+            </select>
+
+            <h3 class="label-title">Recebimento</h3>
+            <select id="payout">
+                <option value="sameday">No mesmo dia</option>
+                <option value="one-day">1 dia útil</option>
+            </select>
+
+            <h3 class="label-title">Valor da venda</h3>
+            <input type="text" id="sale-amount" maxlength="15" valeu="R$ 0,00" placeholder="R$ 0,00">
+
+            <div id="result">
+                <div id="result-col1">
+                    <h3>Você recebe: </h3>
+                    <h3><span id="chosen-sale-type"></span>: </h3>
+                    <h3>Recebimento da venda: </h3>
+                </div>
+                <div id="result-col2">
+                    <h3><span id="amount-received"></span></h3>
+                    <h3><span id="interest-rate"></span></h3>
+                    <h3><span id="chosen-payout"></span></h3>
+                </div>
+            </div>
+
+            <div id="comparsion">
+                <h4>Você economiza até <span id="savings"></span> em relação aos concorrentes</h4>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
