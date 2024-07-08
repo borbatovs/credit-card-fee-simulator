@@ -15,27 +15,76 @@ document.addEventListener('DOMContentLoaded', function () {
     const parseCurrency = value =>
         parseFloat(value.replace(/\D/g, '')) / 100
 
+    const feeRates = {
+        'mastercard': {
+            'debit': 0.0199, // 1.99%
+            'immediate': 0.0499, // 4.99%
+            'installment2x': 0.0628, // 6.28%
+            'installment3x': 0.0698, // 6.98%
+            'installment4x': 0.0769, // 7.69%
+            'installment5x': 0.0840, // 8.40%
+            'installment6x': 0.0912, // 9.12%
+            'installment7x': 0.1004, // 10.04%
+            'installment8x': 0.1078, // 10.78%
+            'installment9x': 0.1151, // 11.51%
+            'installment10x': 0.1226, // 12.26%
+            'installment11x': 0.1301, // 13.01%
+            'installment12x': 0.1377 // 13.77%            
+        }
+
+        , 'visa': {
+            'debit': 0.0199, // 1.99 %
+            'immediate': 0.0499, // 4,99%
+            'installment2x': 0.0594, // 5,94%
+            'installment3x': 0.0664, // 6,64%
+            'installment4x': 0.0734, // 7,34%
+            'installment5x': 0.0805, // 8,05%
+            'installment6x': 0.0877, // 8,77%
+            'installment7x:': 0.0988, // 9,88%
+            'installment8x': 0.1061, // 10,61%
+            'installment9x': 0.1131, // 11,34%
+            'installment10x': 0.1209, // 12,09%
+            'installment11x': 0.1284, // 12,84%
+            'installment12x': 0.1360 // 13,60%
+        }
+
+        // // TO DO: Add card networks and rates
+    }
+
+    const payoutRates = {
+        'sameday': 0.025, // 2.5%
+        'one-day': 0.04 // 4%
+    }
+
     const handleSaleAmountInput = e => {
-        const rawValue = e.target.value.replace(/\D/g, '');
-        const value = rawValue === '' ? 0 : parseCurrency(rawValue);
-        e.target.value = formatCurrency(value);
-        calculateFees();
+        const rawValue = e.target.value.replace(/\D/g, '')
+        const value = rawValue === '' ? 0 : parseCurrency(rawValue)
+        e.target.value = formatCurrency(value)
+        calculateFees()
+    }
+
+    const getFeeRate = (network, sale) => {
+        return feeRates[network]?.[sale] ?? 0.05 // Default fee if combination not found
+    }
+
+    const getPayoutRate = (payout) => {
+        return payoutRates[payout] ?? 0.05 // Default payout fee if not found
     }
 
     const calculateFees = () => {
-        const amount = saleAmount.value ? parseCurrency(saleAmount.value) : 0;
+        const amount = saleAmount.value ? parseCurrency(saleAmount.value) : 0
+        const selectedCardNetwork = cardNetwork.value.toLowerCase()
+        const selectedSaleType = saleType.value.toLowerCase()
+        const selectedPayout = payout.value.toLowerCase()
 
-        // TODO: Implement fee rules here
-        // Use cardNetwork.value, saleType.value, and payout.value to determine the correct fee
-        // Example:
-        // const fee = getFeeRate(cardNetwork.value, saleType.value, payout.value)
-        const simulatedRate = 0.136 // 13.6% (replace this with actual fee calculation)
-
-        const calculatedAmountReceived = amount * (1 - simulatedRate)
+        const feeRate = getFeeRate(selectedCardNetwork, selectedSaleType)
+        const payoutRate = getPayoutRate(selectedPayout)
+        const totalRate = feeRate + payoutRate;
+        const calculatedAmountReceived = amount * (1 - totalRate)
 
         amountReceived.textContent = formatCurrency(calculatedAmountReceived)
         chosenSaleType.textContent = saleType.options[saleType.selectedIndex].text
-        interestRate.textContent = `${(simulatedRate * 100).toFixed(2)}%`
+        interestRate.textContent = `${(totalRate * 100).toFixed(2)}%`
         chosenPayout.textContent = payout.options[payout.selectedIndex].text
 
         const calculatedSavings = amount * 0.05 // 5% savings
