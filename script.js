@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'installment12x': 0.1360 // 13,60%
         }
 
-        // // TO DO: Add card networks and rates
+        // // TO DO: Add more card networks and rates
     }
 
     const payoutRates = {
