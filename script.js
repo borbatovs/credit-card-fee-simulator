@@ -16,13 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
         parseFloat(value.replace(/\D/g, '')) / 100
 
     const handleSaleAmountInput = e => {
-        const value = parseCurrency(e.target.value.replace(/\D/g, ''))
-        e.target.value = formatCurrency(value)
-        calculateFees()
+        const rawValue = e.target.value.replace(/\D/g, '');
+        const value = rawValue === '' ? 0 : parseCurrency(rawValue);
+        e.target.value = formatCurrency(value);
+        calculateFees();
     }
 
     const calculateFees = () => {
-        const amount = parseCurrency(saleAmount.value) || 0
+        const amount = saleAmount.value ? parseCurrency(saleAmount.value) : 0;
 
         // TODO: Implement fee rules here
         // Use cardNetwork.value, saleType.value, and payout.value to determine the correct fee
