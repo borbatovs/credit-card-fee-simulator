@@ -48,6 +48,22 @@ document.addEventListener('DOMContentLoaded', function () {
             'installment12x': 0.1360 // 13,60%
         }
 
+        , 'elo': {
+            'debit': 0.0199, // 1,99%
+            'immediate': 0.0199, // 4,99%
+            'installment2x': 0.0588, // 5,88%
+            'installment3x': 0.0657, // 6,57%
+            'installment4x': 0.0728, // 7,28%
+            'installment5x': 0.0798, // 7,98%
+            'installment6x': 0.0870, // 8,70%
+            'installment7x:': 0.0977, // 9,77%
+            'installment8x': 0.1050, // 10,50%
+            'installment9x': 0.1123, // 11,23%
+            'installment10x': 0.1197, // 11,97%
+            'installment11x': 0.1272, // 12,72%
+            'installment12x': 0.1347 // 13,47%
+        }
+
         // // TO DO: Add more card networks and rates
     }
 
