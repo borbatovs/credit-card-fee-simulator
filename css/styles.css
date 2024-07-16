@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #3cb4c9;
+  --text-color: #2c2c2c;
+  --background-color: #fafafa;
+  --border-color: #e0e0e0;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 * {
   box-sizing: border-box;
   font-size: 100%;
@@ -5,8 +13,13 @@
   margin: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: "Outfit", sans-serif;
+  font-size: 1rem;
   background: linear-gradient(45deg, #05232b, #3cb4c9, #f0f0f0);
   color: #ffffff;
 }
@@ -14,6 +27,8 @@ body {
 .main-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .container {
@@ -21,7 +36,8 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   max-height: 740px;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
   background-color: #fafafa;
   border-radius: 18px;
@@ -34,17 +50,18 @@ body {
   flex-direction: column;
 }
 
-h1,
-h3 {
+h1, h3, h4 {
+  color: var(--text-color);
+}
+
+h1, h3 {
   font-size: 1rem;
-  color: #2c2c2c;
   font-weight: 300;
 }
 
 h4 {
   font-size: 1rem;
   font-weight: 100;
-  color: #2c2c2c;
 }
 
 .label-title {
@@ -66,31 +83,26 @@ input {
   padding: 10px;
   margin-bottom: 30px;
   color: #333;
-  border-color: #e0e0e0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   background-color: #ffffff;
   font-family: "Outfit", sans-serif;  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-input:hover {
-  border-color: #bdbdbd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 select {
   cursor: pointer;
 }
 
-select:hover {
-  border-color: #bdbdbd;
+select:hover, input:hover,
+select:focus, input:focus {
+  border-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
 }
 
-select:focus , input:focus {
-  outline: none;
-  border-color: #3cb4c9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+select, input, .savings-container {
+  transition: all 0.3s ease;
 }
 
 #result {
@@ -171,11 +183,11 @@ select:focus , input:focus {
   }
 
   .container {
-      padding: 15px;
+      padding: 1rem;
   }
 
   h1, h2 {
-      font-size: 1.1em;
+      font-size: 1em;
   }
 
   select, input {
@@ -198,7 +210,7 @@ select:focus , input:focus {
 }
 
 @media screen and (max-width: 320px) {
-  body {
+  html {
       font-size: 13px;
   }
 
