@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const payoutRates = {
-        'sameday': 0.025, // 2.5%
-        'one-day': 0.04 // 4%
+        'sameday': 0.0400, // 4%
+        'one-day': 0.0250 // 2,5%
     }
 
     const handleSaleAmountInput = e => {

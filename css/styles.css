@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   max-height: 740px;
-  width: 700px;
+  width: 500px;
   margin: 0 auto;
   background-color: #fafafa;
   border-radius: 18px;
@@ -73,6 +73,10 @@ input {
   font-family: "Outfit", sans-serif;  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+}
+
+input:hover {
+  border-color: #bdbdbd;
 }
 
 select {
