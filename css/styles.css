@@ -109,7 +109,7 @@ select, input, .savings-container {
   transition: all 0.3s ease;
 }
 
-.result {
+.container-result {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -189,6 +189,68 @@ select, input, .savings-container {
   margin-bottom: 20px;
 }
 
+@media screen and (min-width: 1048px) {
+  html {
+      font-size: 16px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    max-height: 565px;
+    padding: 10px;
+    max-width: 1048px;
+    overflow: hidden;
+  }
+
+  .container-input {
+    display: flex;
+    padding: 30px 45px 65px 65px;
+    height: auto;
+    width: 70%;
+  }
+
+  .container-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    padding: 65px 65px 65px 45px;
+    margin: 0;
+    position: relative;
+
+  }
+
+  .container-result::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 80%;
+    width: 1px;
+    background-color: #D9DBE9;
+    transform: translateY(-50%);
+  }
+
+  .result-col1, .result-col2 {
+    height: 40%;
+    margin-top: 50px;
+  }
+
+  .result-title {    
+    border-bottom: 1px #D9DBE9 solid;
+    border-spacing: 2px;
+  }
+
+  .savings-container {
+    font-size: 1em;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+}  
+
 @media screen and (max-width: 480px) {
   body {
       font-size: 16px;
@@ -254,64 +316,5 @@ select, input, .savings-container {
 
   .result-title {
     font-size: 0.8em;
-  }
-}
-
-@media screen and (min-width: 1048px) {
-  html {
-      font-size: 16px;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-height: 565px;
-    padding: 10px;
-    max-width: 1048px;
-    overflow: hidden;
-  }
-
-  .container-input {
-    display: flex;
-    padding: 65px 45px 45px 65px;
-    height: auto;
-    width: 80%;
-  }
-
-  .result {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 700px;
-    padding: 65px 65px 65px 45px;
-    margin: 0;
-    position: relative;
-
-  }
-
-  .result::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    height: 70%;
-    width: 1px;
-    background-color: #D9DBE9;
-    transform: translateY(-50%);
-  }
-
-  .result-col1, .result-col2 {
-    height: 40%;
-  }
-
-  .result-title {    
-    border-bottom: 1px #D9DBE9 solid;
-    border-spacing: 2px;
-  }
-
-  .savings-container {
-    font-size: 1em;
-    justify-content: flex-start;
   }
 }
