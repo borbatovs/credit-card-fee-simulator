@@ -109,22 +109,26 @@ select, input, .savings-container {
   transition: all 0.3s ease;
 }
 
-#result {
+.result {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 500px;
   justify-content: space-between;
   margin: 10px 0px 10px 0px;
 }
 
-#result-col1 {
+.result-col1 {
   display: flex;
   width: 50%;
+  height: 50%;
   flex-direction: column;
 }
 
-#result-col2 {
+.result-col2 {
   display: flex;
   width: 50%;
+  height: 50%;
   flex-direction: column;
   text-align: right;
 }
@@ -139,13 +143,18 @@ select, input, .savings-container {
   padding-top: 0;
 }
 
+.result-title:last-child {
+  border-bottom: none;
+}
+
 .savings-container {
   display: flex;
   align-items: center;
+  align-self: center;
   justify-content: center;
-  gap: 20px;  
-  margin: 20px 0px 20px 0px;
-  padding: 20px 40px;
+  height: 30%;
+  gap: 20px;
+  padding: 20px 30px;
   background-color: #fff;
   border-radius: 10px;
 }
@@ -182,7 +191,6 @@ select, input, .savings-container {
 
 @media screen and (max-width: 480px) {
   body {
-      /* padding: 10px; */
       font-size: 16px;
   }
 
@@ -200,7 +208,7 @@ select, input, .savings-container {
   }
 
   .savings-container {
-      padding: 10px;
+      padding: 20px;
   }
 
   .savings-icon {
@@ -210,6 +218,10 @@ select, input, .savings-container {
 
   .savings-text {
       font-size: 0.8em;
+  }
+
+  .result-title {
+    font-size: 0.8em;
   }
 }
 
@@ -237,6 +249,69 @@ select, input, .savings-container {
   }
 
   .savings-text {
-      font-size: 0.75em;
+      font-size: 0.75em;          
+  }
+
+  .result-title {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (min-width: 1048px) {
+  html {
+      font-size: 16px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 565px;
+    padding: 10px;
+    max-width: 1048px;
+    overflow: hidden;
+  }
+
+  .container-input {
+    display: flex;
+    padding: 65px 45px 45px 65px;
+    height: auto;
+    width: 80%;
+  }
+
+  .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    padding: 65px 65px 65px 45px;
+    margin: 0;
+    position: relative;
+
+  }
+
+  .result::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 70%;
+    width: 1px;
+    background-color: #D9DBE9;
+    transform: translateY(-50%);
+  }
+
+  .result-col1, .result-col2 {
+    height: 40%;
+  }
+
+  .result-title {    
+    border-bottom: 1px #D9DBE9 solid;
+    border-spacing: 2px;
+  }
+
+  .savings-container {
+    font-size: 1em;
+    justify-content: flex-start;
   }
 }
