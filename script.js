@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         interestRate.textContent = `${(totalRate * 100).toFixed(2)}%`
         chosenPayout.textContent = payout.options[payout.selectedIndex].text
 
-        const calculatedSavings = amount * 0.05 // 5% savings
+        const calculatedSavings = amount * 0.8 // 8% savings
         savings.textContent = formatCurrency(calculatedSavings)
     }
 
