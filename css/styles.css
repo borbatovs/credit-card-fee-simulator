@@ -199,7 +199,7 @@ select, input, .savings-container {
     flex-direction: row;
     align-items: center;
     margin: auto;
-    max-height: 565px;
+    max-height: 500px;
     padding: 10px;
     max-width: 1048px;
     overflow: hidden;
@@ -207,7 +207,7 @@ select, input, .savings-container {
 
   .container-input {
     display: flex;
-    padding: 30px 45px 65px 65px;
+    padding: 30px 45px 30px 30px;
     height: auto;
     width: 70%;
   }
@@ -217,7 +217,7 @@ select, input, .savings-container {
     justify-content: space-between;
     align-items: center;
     width: 700px;
-    padding: 65px 65px 65px 45px;
+    padding: 65px 30px 30px 45px;
     margin: 0;
     position: relative;
 
